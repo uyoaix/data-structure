@@ -9,7 +9,8 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] array = {5, 2, 8, 1, 2, 9, 7, 4, 12};
+        int[] array = {5, 3, 17, 10, 32, 0, 12, 9, 16, 20, 1};
+
         System.out.println("排序前数组：" + Arrays.toString(array));
         sort(array, 0, array.length - 1);
         System.out.println("排序后数组：" + Arrays.toString(array));
@@ -19,20 +20,18 @@ public class QuickSort {
      * 1）取一个数作标准(一般取数组第一个数)，将数组分为2部分
      * 左边的都是比标准数小的，右边都是比标准数大的
      * 2）重复第一步，递归左右2部分数据
-     * @param array
-     * @param start
-     * @param end
-     * @return
+     * @param array 要排序的数组
+     * @param start 开始位置
+     * @param end   结束位置
      */
-    public static int[] sort(int[] array, int start, int end){
-
-        int standard = array[start];
-        int low = start;
-        int high = end;
+    private static void sort(int[] array, int start, int end){
 
         // 1）第一步： 循环数组，找到比标准数大的和标准数小的数
+        if(start < end){
+            int standard = array[start];
+            int low = start;
+            int high = end;
 
-        if(low < high){
             while(low < high){
                 // 从最后一个数开始比较，比标准数大，就不动，并将下标向左移动；
                 while(low < high && array[high] >= standard){
@@ -60,7 +59,6 @@ public class QuickSort {
             sort(array, low + 1, end); // 右边的数据下标从low后一位开始到数组最后的位置
         }
 
-        return array;
     }
 
 

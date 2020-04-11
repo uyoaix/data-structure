@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 /**
  * 基数排序: 基于二维数组实现
- * 适用于有大有小的数组排序： 个位有，十位有，百位数也有
- * 1) 创建10个数组作为桶： （余数只有0-9这10中情况）
+ * 适用于有大有小的数组排序： 个位数有，十位数有，百位数也有
+ * 1) 创建10个数组作为桶： （余数只有0-9这10种情况）
  *
  * 2） 先把数字按个位放入桶中，放入的方法是求余数
  * 3） 把第一轮放入桶中的数据取出来，顺序是先放的先取
@@ -30,6 +30,7 @@ public class RedixSortWithArray {
 
     private static void sort(int[] array){
 
+        // 找出数组中最大的数
         int max = Integer.MIN_VALUE;
         for (int data : array) {
             if (data > max) {
@@ -37,10 +38,11 @@ public class RedixSortWithArray {
             }
         }
         System.out.println("数组中最大数：" + max);
+
         int maxLength = ("" + max).length();
-        // 存放临时数据的二维数组
+        // 存放临时数据的二维数组：10个桶（0-9），每次计算余数后放入对应的桶
         int[][] tmp = new int[10][array.length];
-        // 记录再相应数组存放数据的个数
+        // 记录在相应桶中存放数据的个数
         int[] counts = new int[10];
 
         // 根据最大长度决定比较的次数

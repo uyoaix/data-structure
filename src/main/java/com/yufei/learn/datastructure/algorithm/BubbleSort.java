@@ -9,7 +9,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
 
-        int[] array = {2, 3, 17, 10, 32, 12, 4, 16, 20, 1};
+        int[] array = {5, 3, 17, 10, 32, 0, 12, 9, 16, 20, 1};
 
         System.out.println("排序前顺序： " + Arrays.toString(array));
         sort(array);

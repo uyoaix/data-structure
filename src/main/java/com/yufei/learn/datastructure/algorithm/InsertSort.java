@@ -9,7 +9,7 @@ public class InsertSort {
 
     public static void main(String[] args) {
 
-        int[] array = {5, 8, 2, 6, 9, 1, 3, 10};
+        int[] array = {5, 3, 17, 10, 32, 0, 12, 9, 16, 20, 1};
 
         System.out.println("排序前数组：" + Arrays.toString(array));
         sort(array);
@@ -26,7 +26,6 @@ public class InsertSort {
                 //  将当前数字存起来
                 int tmp = array[i];
 
-                /** -----------------------**/
                 int j;
                 // 遍历当前数字前面所有的数字
                 for(j = i-1; j >= 0 && array[j] > tmp; j--){
@@ -35,7 +34,6 @@ public class InsertSort {
                 }
                 // 前面的数遍历完，没有比当前数大的，就将tmp赋给遍历到的数的前一个
                 array[j+1] = tmp;
-                /** -----------------------**/
 
             }
         }

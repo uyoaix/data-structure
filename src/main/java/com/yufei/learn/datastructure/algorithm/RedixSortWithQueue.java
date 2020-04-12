@@ -1,8 +1,6 @@
 package com.yufei.learn.datastructure.algorithm;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 基数排序: 基于队列实现
@@ -30,10 +28,12 @@ public class RedixSortWithQueue {
 
         int maxLength = ("" + max).length();
         // 存放临时数据的队列：10个桶（0-9），每次计算余数后放入对应的桶
-        ArrayDeque<Integer>[] queues = new ArrayDeque[10];
-        // 初始化队列数组中的队列
-        for(int i=0; i<queues.length; i++){
-            queues[i] = new ArrayDeque<>();
+        // ArrayDeque<Integer>[] queues = new ArrayDeque[10];
+        // 使用上面的范型数组会出现类型擦除，编译会有unchecked类型警告，可以使用下面的代码
+        List<ArrayDeque<Integer>> queues = new ArrayList<>(10);
+        // 初始化list中的队列
+        for(int i=0; i<10; i++){
+            queues.add(new ArrayDeque<>());
         }
 
         // 根据最大长度决定比较的次数
@@ -43,7 +43,7 @@ public class RedixSortWithQueue {
             for (int data : array) {
                 int remainder = (data / n) % 10;
                 // 把当前遍历的数据放入数组
-                queues[remainder].add(data);
+                queues.get(remainder).add(data);
             }
 
 

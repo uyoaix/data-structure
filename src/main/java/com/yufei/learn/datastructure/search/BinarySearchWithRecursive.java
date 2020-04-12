@@ -1,7 +1,7 @@
 package com.yufei.learn.datastructure.search;
 
 /**
- * 二分查找： 递归实现实现
+ * 二分查找： 递归实现
  *
  * @author uyoaix
  * @date 2020年04月13日 00:52:00
